@@ -1,4 +1,4 @@
-# ML Pipeline for Predicting Exacerbation Outcome  [Insert Condition/Outcome Here]
+# ML Pipeline for Predicting Exacerbation Outcome
 
 This repository contains code and documentation for the machine learning (ML) pipeline developed to analyze and predict clinical outcomes in pediatric asthma patients. 
 The models were implemented and validated as part of the study:  
