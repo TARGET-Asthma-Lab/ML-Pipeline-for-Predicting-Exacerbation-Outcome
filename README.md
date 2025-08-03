@@ -31,18 +31,18 @@ The ML pipeline consists of the following key steps:
 To reproduce the results:
 
 ### Create environment
-```bash
+``bash
 conda create -n ml-pipeline python=3.9
 conda activate ml-pipeline
 pip install -r requirements.txt
 
 
 ### Run training
-```bash
+``bash
 python src/training.py
 
 ### Run evaluation
-```bash
+``bash
 python src/evaluation.py
 
 ## 👤 Contributors
@@ -53,7 +53,7 @@ Project leader
 [Oleg S. Matusovsky, PhD] ([https://github.com/matusoff])
 Lead developer of the ML models, data pipeline, and workflow design.
 
-Data contributions from:
+### Data contributions from:
 
 [Co-author 1] 
 [Co-author 2]
