@@ -20,7 +20,7 @@ The ML pipeline consists of the following key steps:
 
 2. **Model Training**  
    - 10-fold cross-validation on the training set  
-   - Models: Logistic Regression (LR), Composite Regression, Support Vector Machine (SVM), Decision Tree, Feedforward Neural Network (FFNN).
+   - Models: Logistic Regression (LR), Composite Regression (CR), Support Vector Machine (SVM), Decision Tree (XGBoost), Feedforward Neural Network (FFNN).
 
 3. **Model Application and Evaluation**  
    - Trained models are applied to the test set  
