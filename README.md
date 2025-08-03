@@ -31,19 +31,17 @@ The ML pipeline consists of the following key steps:
 To reproduce the results:
 
 ### Create environment
-``bash
+``
 conda create -n ml-pipeline python=3.9
 conda activate ml-pipeline
 pip install -r requirements.txt``
 
 
 ### Run training
-``bash
-python src/training.py
+``python src/training.py``
 
 ### Run evaluation
-``bash
-python src/evaluation.py
+``python src/evaluation.py``
 
 ## 👤 Contributors
 This project was created and developed by:
@@ -54,7 +52,7 @@ Project leader
 Lead developer of the ML models, data pipeline, and workflow design.
 
 ### Data contributions from:
-
+``
 [Co-author 1] 
 [Co-author 2]
 [Co-author 3] 
@@ -62,11 +60,11 @@ Lead developer of the ML models, data pipeline, and workflow design.
 [Co-author 5] 
 [Co-author 6]
 [Co-author 7] 
-[Co-author 8]
+[Co-author 8]``
 
 ## 📄 Citation
 If you use this codebase, please cite:
-[DOI here once available]
+``[DOI here once available]``
 
 ---
 
