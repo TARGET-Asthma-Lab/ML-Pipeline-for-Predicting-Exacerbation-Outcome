@@ -45,22 +45,22 @@ pip install -r requirements.txt``
 
 ## 👤 Contributors
 This project was created and developed by:
-[Cristina Longo, PhD] ([University of Montreal])
-Project leader
 
-[Oleg S. Matusovsky, PhD] ([https://github.com/matusoff])
-Lead developer of the ML models, data pipeline, and workflow design.
+**Cristina Longo, PhD**  
+*Project leader, University of Montreal*
 
-### Data contributions from:
-``
-[Co-author 1] 
-[Co-author 2]
-[Co-author 3] 
-[Co-author 4]
-[Co-author 5] 
-[Co-author 6]
-[Co-author 7] 
-[Co-author 8]``
+**Oleg S. Matusovsky, PhD** — [GitHub: matusoff](https://github.com/matusoff)  
+*Lead developer of the ML models, data pipeline, and workflow design.*
+
+**Data contributions from:**  
+Co-author 1  
+Co-author 2  
+Co-author 3  
+Co-author 4  
+Co-author 5  
+Co-author 6  
+Co-author 7  
+Co-author 8
 
 ## 📄 Citation
 If you use this codebase, please cite:
