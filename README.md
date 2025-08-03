@@ -5,7 +5,7 @@ The models were implemented and validated as part of the study:
 **"[full study title]"**.
 
 <p align="center">
-  <img src="figures/Pipeline.png" width="5000"/>
+  <img src="figures/Pipeline.png" width="100%"/>
 </p>
 
 ---
