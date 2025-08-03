@@ -34,7 +34,7 @@ To reproduce the results:
 ``bash
 conda create -n ml-pipeline python=3.9
 conda activate ml-pipeline
-pip install -r requirements.txt
+pip install -r requirements.txt``
 
 
 ### Run training
