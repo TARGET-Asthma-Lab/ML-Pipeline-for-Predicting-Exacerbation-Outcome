@@ -27,17 +27,22 @@ The ML pipeline consists of the following key steps:
    - Scoring includes accuracy, precision, recall, F1-score, ROC-AUC
   
 ## 📌 Reproducibility
+
 To reproduce the results:
 
-# Create environment
+### Create environment
+```bash
 conda create -n ml-pipeline python=3.9
 conda activate ml-pipeline
 pip install -r requirements.txt
 
-# Run training
+
+### Run training
+```bash
 python src/training.py
 
-# Run evaluation
+### Run evaluation
+```bash
 python src/evaluation.py
 
 ## 👤 Contributors
