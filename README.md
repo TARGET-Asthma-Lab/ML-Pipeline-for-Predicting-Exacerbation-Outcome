@@ -32,9 +32,9 @@ To reproduce the results:
 
 ### Create environment
 ``
-conda create -n ml-pipeline python=3.9
-conda activate ml-pipeline
-pip install -r requirements.txt``
+- conda create -n ml-pipeline python=3.9
+- conda activate ml-pipeline
+- pip install -r requirements.txt``
 
 
 ### Run training
