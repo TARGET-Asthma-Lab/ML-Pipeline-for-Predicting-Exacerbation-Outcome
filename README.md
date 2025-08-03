@@ -16,15 +16,15 @@ The ML pipeline consists of the following key steps:
 
 1. **Data Preparation**  
    - 80/20 train-test split on the original dataset  
-   - Data preprocessing and imputation (if applicable)
+   - Data preprocessing and MICE-imputation
 
 2. **Model Training**  
    - 10-fold cross-validation on the training set  
-   - Models: Logistic Regression (LR), Support Vector Machine (SVM), Decision Tree, Feedforward Neural Network (FFNN), etc.
+   - Models: Logistic Regression (LR), Composite Regression, Support Vector Machine (SVM), Decision Tree, Feedforward Neural Network (FFNN).
 
 3. **Model Application and Evaluation**  
    - Trained models are applied to the test set  
-   - Scoring includes accuracy, precision, recall, F1-score, ROC-AUC, and others
+   - Scoring includes accuracy, precision, recall, F1-score, ROC-AUC
 
 ---
 
