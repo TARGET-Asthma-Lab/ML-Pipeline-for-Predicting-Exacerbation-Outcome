@@ -24,7 +24,7 @@ The ML pipeline consists of the following key steps:
 
 3. **Model Application and Evaluation**  
    - Trained models are applied to the test set  
-   - Scoring includes accuracy, precision, recall, F1-score, ROC-AUC
+   - Scoring includes accuracy, precision, recall, F1-score, Training vs Validation Loss, Training vs. Validation Accuracy, ROC-AUC
   
 ## 📌 Reproducibility
 
