@@ -25,6 +25,43 @@ The ML pipeline consists of the following key steps:
 3. **Model Application and Evaluation**  
    - Trained models are applied to the test set  
    - Scoring includes accuracy, precision, recall, F1-score, ROC-AUC
+  
+## 📌 Reproducibility
+To reproduce the results:
+
+# Create environment
+conda create -n ml-pipeline python=3.9
+conda activate ml-pipeline
+pip install -r requirements.txt
+
+# Run training
+python src/training.py
+
+# Run evaluation
+python src/evaluation.py
+
+## 👤 Contributors
+This project was created and developed by:
+[Cristina Longo, PhD] ([University of Montreal])
+Project leader
+
+[Oleg S. Matusovsky, PhD] ([https://github.com/matusoff])
+Lead developer of the ML models, data pipeline, and workflow design.
+
+Data contributions from:
+
+[Co-author 1] 
+[Co-author 2]
+[Co-author 3] 
+[Co-author 4]
+[Co-author 5] 
+[Co-author 6]
+[Co-author 7] 
+[Co-author 8]
+
+## 📄 Citation
+If you use this codebase, please cite:
+[DOI here once available]
 
 ---
 
