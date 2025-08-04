@@ -32,7 +32,7 @@ To reproduce the results:
 
 ### Create environment
 
-``bash
+``
 conda create -n ml-pipeline python=3.9 -y
 conda activate ml-pipeline
 pip install -r requirements.txt
