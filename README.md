@@ -70,7 +70,7 @@ If you use this codebase, please cite:
 ## 📂 Repository Structure
 
 ```bash
-├── data/               # Raw and processed data (if allowed)
+├── data/               # processed data
 ├── figures/            # Workflow images and results
 ├── models/             # Saved model weights or pipelines
 ├── notebooks/          # Jupyter Notebooks for training, evaluation
