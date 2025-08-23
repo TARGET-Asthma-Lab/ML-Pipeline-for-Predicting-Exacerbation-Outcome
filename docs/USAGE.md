@@ -1,6 +1,6 @@
-1) Logistic Regression
+# 1) Logistic Regression
 
-# Gene only
+## Gene only
 python src/models/logisticregression.py \
   --data  "data/gene/gene_RF_imputed_Oct30_{i}_sklearnImp_NoClinical.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag gene_logreg_k60
@@ -50,7 +50,7 @@ python src/models/logisticregression.py \
   --raw-div-pca-var 0.95 \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clingen_ab_raw_logreg_k60
 
-2) SVM (RBF kernel)
+# 2) SVM (RBF kernel)
 
 # Gene only
 python src/models/svm.py \
@@ -102,7 +102,7 @@ python src/models/svm.py \
   --raw-div-pca-var 0.95 \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clingen_ab_raw_svm_k60
 
-3) XGBoost
+# 3) XGBoost
 
 # Gene only
 python src/models/xgboost.py \
@@ -154,7 +154,7 @@ python src/models/xgboost.py \
   --raw-div-pca-var 0.95 \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clingen_ab_raw_xgb_k60
 
-4) Feedforward Neural Network (PyTorch)
+# 4) Feedforward Neural Network (PyTorch)
 
 # Gene only
 python src/models/feedforward.py \
