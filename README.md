@@ -47,17 +47,17 @@ To reproduce the results:
 
 ``--top-k 60 selects the top 60 SHAP features. To use 200 features, change to --top-k 200``.
 
-Results go to ``results/ and plots to figures/``.
+``Results go to results/ and plots to figures/``.
 
 ``Target column is Exacerbation.Outcome. ID column is subject_id``.
 
-Optional merges:
+``Optional merges:``
 
---alpha "data/alpha_div/alpha_div_imputed_pmm{i}_Jan30.csv"
+``--alpha "data/alpha_div/alpha_div_imputed_pmm{i}_Jan30.csv"``
 
---beta "data/beta_div/beta_div_imputed_pmm{i}_Jan30.csv"
+``--beta "data/beta_div/beta_div_imputed_pmm{i}_Jan30.csv"``
 
---raw-div "data/rawdiv/otutab_transp_div_imputed_fastFeb13.csv" --raw-div-pca-var 0.95
+``--raw-div "data/rawdiv/otutab_transp_div_imputed_fastFeb13.csv" --raw-div-pca-var 0.95``
 
 
 ## 👤 Contributors
