@@ -141,7 +141,7 @@ all_shap_features_dict = {}
 shap_feature_dfs = []
 
 for dataset_id, feature_set in enumerate(data_list, 1):
-    print(f"\n🔹 Computing SHAP Features for Dataset {dataset_id}")
+    print(f"\n Computing SHAP Features for Dataset {dataset_id}")
 
     X = feature_set.drop(columns=['Exacerbation.Outcome', 'subject_id'], errors='ignore')
     y = feature_set['Exacerbation.Outcome']
@@ -184,7 +184,7 @@ print("SHAP Features Precomputed and Saved!")
 # shap_feature_dfs = []
 
 # for dataset_id, feature_set in enumerate(data_list, 1):
-#     print(f"\n🔹 Computing SHAP Features for Dataset {dataset_id}")
+#     print(f"\n Computing SHAP Features for Dataset {dataset_id}")
 
 #     X = feature_set.drop(columns=['Exacerbation.Outcome', 'subject_id'], errors='ignore')
 #     y = feature_set['Exacerbation.Outcome']
@@ -717,3 +717,4 @@ if __name__ == "__main__":
     model.eval()
 summary(model, input_size=(1, input_dim))
   
+
