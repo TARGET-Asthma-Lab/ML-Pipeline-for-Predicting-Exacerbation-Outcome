@@ -1,0 +1,10 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+joblib
+imbalanced-learn
+shap
+optuna
+torchinfo
+# Install PyTorch separately per https://pytorch.org/get-started/locally/
