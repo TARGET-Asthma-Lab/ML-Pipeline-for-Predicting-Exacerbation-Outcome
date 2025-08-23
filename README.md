@@ -70,15 +70,24 @@ If you use this codebase, please cite:
 ## 📂 Repository Structure
 
 ```bash
-├── data/               # processed data
-├── figures/            # Workflow images and results
-├── models/             # Saved model weights or pipelines
-├── notebooks/          # Jupyter Notebooks for training, evaluation
-├── src/                # Core Python scripts
+data/
+├── gene/        # your_file.csv
+├── clinical/    # your_file.csv
+├── clingen/     # your_file.csv
+├── exacer/      # your_file.csv
+├── alpha_div/   # your_file.csv
+├── beta_div/    # your_file.csv
+└── rawdiv/      # your_file.csv
+figures/         # workflow images & results
+models/          # saved model weights/pipelines
+results/         # metrics, curves, summaries
+notebooks/       # exploratory notebooks
+src/             # core python scripts
 │   ├── preprocessing.py
-│   ├── training.py
-│   ├── evaluation.py
-│   └── utils.py
-├── requirements.txt    # Required Python packages
-├── a28e3e5d-5190...png # ML pipeline figure
-└── README.md
+│   ├── training.py          ← routes to feedforward.py
+│   ├── evaluation.py        ← summarizes metrics by tag
+│   └── feedforward.py       ← FFNN + SHAP top-K + optional merges
+scripts/         # optional helpers
+requirements.txt
+README.md
+
