@@ -17,36 +17,6 @@ from sklearn.metrics import mean_squared_error
 from sklearn.metrics import f1_score
 
 
-
-#  Load datasets
-data_list  = [pd.read_csv(rf'gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10.csv') for i in range(1, 6)]
-
-
-# #  For Diversity only 
-# data_list  = [pd.read_csv(rf'clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_ExacerOut.csv') for i in range(1, 6)]
-
-
-# # Gene only
-# data_list  = [pd.read_csv(rf'gene_RF_imputed_Oct30_{i}_sklearnImp_NoClinical.csv') for i in range(1, 6)]
-
-# # Clinical
-# data_list  = [pd.read_csv(rf'clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10.csv') for i in range(1, 6)]
-
-
-
-# Load alpha and beta diversity datasets
-alpha_div_list = [pd.read_csv(rf'alpha_div_imputed_pmm{i}_Jan30.csv') for i in range(1, 6)]
-beta_div_list = [pd.read_csv(rf'beta_div_imputed_pmm{i}_Jan30.csv') for i in range(1, 6)]
-
-
-# Merge each dataset with its corresponding alpha/beta diversity
-merged_data_list = []
-for i in range(5):
-    merged_df = data_list[i].merge(alpha_div_list[i], on='subject_id', how='inner')
-    merged_df = merged_df.merge(beta_div_list[i], on='subject_id', how='inner')
-    merged_data_list.append(merged_df)
-
-
 # Precompute SHAP Features for All Datasets (Before Cross-Validation)
 all_shap_features_dict = {}
 shap_feature_dfs = []
