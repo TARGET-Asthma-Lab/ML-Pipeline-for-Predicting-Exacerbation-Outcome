@@ -34,6 +34,7 @@ To reproduce the results:
 
 `conda create -n ml-pipeline python=3.9 -y`  
 `conda activate ml-pipeline`  
+# Install PyTorch from https://pytorch.org/get-started/locally/ (per your OS/CUDA)
 `pip install -r requirements.txt`
 
 ### Run training
