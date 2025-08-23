@@ -35,6 +35,7 @@ To reproduce the results:
 - `conda create -n ml-pipeline python=3.9 -y`  
 - `conda activate ml-pipeline`  
 - `pip install -r requirements.txt`
+- `check USAGE.md in docs/`
 
 ### Run training
 ``python src/training.py``
