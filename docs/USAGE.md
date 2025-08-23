@@ -1,7 +1,7 @@
 ### 1) Logistic Regression
 
 ### Gene only
-``python src/models/logisticregression.py \``
+`python src/models/logisticregression.py \`
   --data  "data/gene/gene_RF_imputed_Oct30_{i}_sklearnImp_NoClinical.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag gene_logreg_k60
 
