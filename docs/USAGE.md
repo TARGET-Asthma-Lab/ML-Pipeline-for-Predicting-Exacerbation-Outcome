@@ -7,12 +7,12 @@ python src/models/logisticregression.py \
 
 ### Clinical only
 python src/models/logisticregression.py \
-  --data  "data/clinical/clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clinical/clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clinical_logreg_k60
 
 ### ClinGen (premerged gene+clinical)
 python src/models/logisticregression.py \
-  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clingen_logreg_k60
 
 ### Exacerbation-only
@@ -22,14 +22,14 @@ python src/models/logisticregression.py \
 
 ### Clinical + α + β diversity
 python src/models/logisticregression.py \
-  --data  "data/clinical/clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clinical/clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --alpha "data/alpha_div/alpha_div_imputed_pmm{i}_Jan30.csv" \
   --beta  "data/beta_div/beta_div_imputed_pmm{i}_Jan30.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clin_ab_logreg_k60
 
 ### ClinGen + α + β
 python src/models/logisticregression.py \
-  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --alpha "data/alpha_div/alpha_div_imputed_pmm{i}_Jan30.csv" \
   --beta  "data/beta_div/beta_div_imputed_pmm{i}_Jan30.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clingen_ab_logreg_k60
@@ -43,7 +43,7 @@ python src/models/logisticregression.py \
 
 ### ClinGen + α + β + Raw diversity (PCA 95%)
 python src/models/logisticregression.py \
-  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --alpha "data/alpha_div/alpha_div_imputed_pmm{i}_Jan30.csv" \
   --beta  "data/beta_div/beta_div_imputed_pmm{i}_Jan30.csv" \
   --raw-div "data/rawdiv/otutab_transp_div_imputed_fastFeb13.csv" \
@@ -59,12 +59,12 @@ python src/models/svm.py \
 
 ### Clinical only
 python src/models/svm.py \
-  --data  "data/clinical/clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clinical/clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clinical_svm_k60
 
 ### ClinGen (premerged gene+clinical)
 python src/models/svm.py \
-  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clingen_svm_k60
 
 ### Exacerbation-only
@@ -74,14 +74,14 @@ python src/models/svm.py \
 
 ### Clinical + α + β diversity
 python src/models/svm.py \
-  --data  "data/clinical/clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clinical/clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --alpha "data/alpha_div/alpha_div_imputed_pmm{i}_Jan30.csv" \
   --beta  "data/beta_div/beta_div_imputed_pmm{i}_Jan30.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clin_ab_svm_k60
 
 ### ClinGen + α + β
 python src/models/svm.py \
-  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --alpha "data/alpha_div/alpha_div_imputed_pmm{i}_Jan30.csv" \
   --beta  "data/beta_div/beta_div_imputed_pmm{i}_Jan30.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clingen_ab_svm_k60
@@ -95,7 +95,7 @@ python src/models/svm.py \
 
 ### ClinGen + α + β + Raw diversity (PCA 95%)
 python src/models/svm.py \
-  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --alpha "data/alpha_div/alpha_div_imputed_pmm{i}_Jan30.csv" \
   --beta  "data/beta_div/beta_div_imputed_pmm{i}_Jan30.csv" \
   --raw-div "data/rawdiv/otutab_transp_div_imputed_fastFeb13.csv" \
@@ -111,12 +111,12 @@ python src/models/xgboost.py \
 
 ### Clinical only
 python src/models/xgboost.py \
-  --data  "data/clinical/clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clinical/clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clinical_xgb_k60
 
 ### ClinGen (premerged gene+clinical)
 python src/models/xgboost.py \
-  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clingen_xgb_k60
 
 ### Exacerbation-only
@@ -126,14 +126,14 @@ python src/models/xgboost.py \
 
 ### Clinical + α + β diversity
 python src/models/xgboost.py \
-  --data  "data/clinical/clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clinical/clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --alpha "data/alpha_div/alpha_div_imputed_pmm{i}_Jan30.csv" \
   --beta  "data/beta_div/beta_div_imputed_pmm{i}_Jan30.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clin_ab_xgb_k60
 
 ### ClinGen + α + β
 python src/models/xgboost.py \
-  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --alpha "data/alpha_div/alpha_div_imputed_pmm{i}_Jan30.csv" \
   --beta  "data/beta_div/beta_div_imputed_pmm{i}_Jan30.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clingen_ab_xgb_k60
@@ -147,7 +147,7 @@ python src/models/xgboost.py \
 
 ### ClinGen + α + β + Raw diversity (PCA 95%)
 python src/models/xgboost.py \
-  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --alpha "data/alpha_div/alpha_div_imputed_pmm{i}_Jan30.csv" \
   --beta  "data/beta_div/beta_div_imputed_pmm{i}_Jan30.csv" \
   --raw-div "data/rawdiv/otutab_transp_div_imputed_fastFeb13.csv" \
@@ -163,12 +163,12 @@ python src/models/feedforward.py \
 
 ### Clinical only
 python src/models/feedforward.py \
-  --data  "data/clinical/clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clinical/clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clinical_ffnn_k60
 
 ### ClinGen (premerged gene+clinical)
 python src/models/feedforward.py \
-  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clingen_ffnn_k60
 
 ### Exacerbation-only
@@ -178,14 +178,14 @@ python src/models/feedforward.py \
 
 ### Clinical + α + β diversity
 python src/models/feedforward.py \
-  --data  "data/clinical/clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clinical/clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --alpha "data/alpha_div/alpha_div_imputed_pmm{i}_Jan30.csv" \
   --beta  "data/beta_div/beta_div_imputed_pmm{i}_Jan30.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clin_ab_ffnn_k60
 
 ### ClinGen + α + β
 python src/models/feedforward.py \
-  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --alpha "data/alpha_div/alpha_div_imputed_pmm{i}_Jan30.csv" \
   --beta  "data/beta_div/beta_div_imputed_pmm{i}_Jan30.csv" \
   --runs 5 --target Exacerbation.Outcome --top-k 60 --tag clingen_ab_ffnn_k60
@@ -199,7 +199,7 @@ python src/models/feedforward.py \
 
 ### ClinGen + α + β + Raw diversity (PCA 95%)
 python src/models/feedforward.py \
-  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10.csv" \
+  --data  "data/clingen/gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10_July11.csv" \
   --alpha "data/alpha_div/alpha_div_imputed_pmm{i}_Jan30.csv" \
   --beta  "data/beta_div/beta_div_imputed_pmm{i}_Jan30.csv" \
   --raw-div "data/rawdiv/otutab_transp_div_imputed_fastFeb13.csv" \
