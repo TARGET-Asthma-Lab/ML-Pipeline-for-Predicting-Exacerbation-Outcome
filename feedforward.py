@@ -1,28 +1,31 @@
-# May 14
 # hypertuning for 60 features or 200 features
 
 '''
-Uncomment the lines corresponding to the data combination you want to run, and leave the others commented.
-After execution, collect the resulting metrics and figures, and save them to your preferred location.
-Then, proceed to the next data combination and run the model again.
-Example: 
-uncomment # Gene Only
-data_list  = [pd.read_csv(rf'C:\DATA\CEVAE\data\interim\GeneData_NoClinical\gene_RF_imputed_Oct30_{i}_sklearnImp_NoClinical.csv') for i in range(1, 6)] and keep others commented (Clinical, ClinGen, RawDiv etc) 
+Uncomment the lines corresponding to the data combination you want to run, and leave the others commented.  
+After execution, collect the resulting metrics and figures, and save them to your preferred location.  
+Then, proceed to the next data combination and run the model again.  
 
-Run the model for Gene data only. 
+Example:  
+Uncomment # Gene Only  
+data_list = [pd.read_csv(rf'gene_RF_imputed_Oct30_{i}_sklearnImp_NoClinical.csv') for i in range(1, 6)]  
+and keep others (Clinical, ClinGen, RawDiv, etc.) commented.  
 
-If you need a combination of the data with alpha and beta diversity or raw diversity, then:
-1. Uncomment the data combination you want to run. 
-2. Uncomment the `alpha_div_list` and `beta_div_list` lines if you want to test your data with alpha-beta diversities.
-3. Uncomment the merging and processing block for Raw Diversity if you want to test your data with Raw Diversity.
+Run the model for Gene data only.  
 
-Example: uncomment # Gene Only
-data_list  = [pd.read_csv(rf'C:\DATA\CEVAE\data\interim\GeneData_NoClinical\gene_RF_imputed_Oct30_{i}_sklearnImp_NoClinical.csv') for i in range(1, 6)] and 
+If you need a combination of the data with alpha and beta diversity or raw diversity, then:  
+1. Uncomment the data combination you want to run.  
+2. Uncomment the `alpha_div_list` and `beta_div_list` lines if you want to test your data with alpha-beta diversities.  
+3. Uncomment the merging and processing block for Raw Diversity if you want to test your data with Raw Diversity.  
 
-alpha_div_list = [pd.read_csv(rf'C:\DATA\bayesian\data\processed\alpha_div_imputed_pmm{i}_Jan30.csv') for i in range(1, 6)]
-beta_div_list = [pd.read_csv(rf'C:\DATA\bayesian\data\processed\beta_div_imputed_pmm{i}_Jan30.csv') for i in range(1, 6)]
+Example: Uncomment # Gene Only  
+data_list = [pd.read_csv(rf'gene_RF_imputed_Oct30_{i}_sklearnImp_NoClinical.csv') for i in range(1, 6)]  
 
-Run the model for Gene data + alpha-beta diversities
+alpha_div_list = [pd.read_csv(rf'alpha_div_imputed_pmm{i}_Jan30.csv') for i in range(1, 6)]  
+beta_div_list = [pd.read_csv(rf'beta_div_imputed_pmm{i}_Jan30.csv') for i in range(1, 6)]  
+
+Run the model for Gene data + alpha-beta diversities.  
+
+To run the model with either n=60 or n=200 Preselected SHAP features, choose the corresponding code block for either n=60 or n=200.
 '''
 
 
@@ -36,7 +39,6 @@ from torch.optim.lr_scheduler import ReduceLROnPlateau
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, classification_report, roc_auc_score, precision_score, recall_score, roc_curve, auc
-from imblearn.combine import SMOTETomek
 from sklearn.linear_model import LogisticRegression
 import shap
 import copy
@@ -62,19 +64,19 @@ torch.backends.cudnn.benchmark = False
 
 
 # Gene Only
-data_list  = [pd.read_csv(rf'C:\DATA\CEVAE\data\interim\GeneData_NoClinical\gene_RF_imputed_Oct30_{i}_sklearnImp_NoClinical.csv') for i in range(1, 6)]
+data_list  = [pd.read_csv(rf'gene_RF_imputed_Oct30_{i}_sklearnImp_NoClinical.csv') for i in range(1, 6)]
 
 # # Clinical
-# data_list  = [pd.read_csv(rf'C:\DATA\CEVAE\data\interim\Asthma_treatment\clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10.csv') for i in range(1, 6)]
+# data_list  = [pd.read_csv(rf'clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10.csv') for i in range(1, 6)]
 
 # # # ClinGen
-# data_list  = [pd.read_csv(rf'C:\DATA\CEVAE\data\interim\Asthma_treatment\gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10.csv') for i in range(1, 6)]
+# data_list  = [pd.read_csv(rf'gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10.csv') for i in range(1, 6)]
 
 # ## Raw Div
-# raw_div = pd.read_csv(r"C:\DATA\bayesian\data\processed\otutab_transp_div_imputed_fastFeb13.csv")
+# raw_div = pd.read_csv(r"otutab_transp_div_imputed_fastFeb13.csv")
 
 ## Exacerbation.Outcom only
-# data_list  = [pd.read_csv(rf'C:\DATA\CEVAE\data\interim\ExacerOutcome\clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_ExacerOut.csv') for i in range(1, 6)]
+# data_list  = [pd.read_csv(rf'clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_ExacerOut.csv') for i in range(1, 6)]
 
 
 for i, df in enumerate(data_list, 1):
@@ -84,9 +86,9 @@ for i, df in enumerate(data_list, 1):
     print(f"Number of features: {df.shape[1]-2}")  # -2 for Exacerbation.Outcome and subject_id
 
 # # Load alpha and beta diversity datasets
-# alpha_div_list = [pd.read_csv(rf'C:\DATA\bayesian\data\processed\alpha_div_imputed_pmm{i}_Jan30.csv') for i in range(1, 6)]
+# alpha_div_list = [pd.read_csv(rf'alpha_div_imputed_pmm{i}_Jan30.csv') for i in range(1, 6)]
 
-# beta_div_list = [pd.read_csv(rf'C:\DATA\bayesian\data\processed\beta_div_imputed_pmm{i}_Jan30.csv') for i in range(1, 6)]
+# beta_div_list = [pd.read_csv(rf'beta_div_imputed_pmm{i}_Jan30.csv') for i in range(1, 6)]
 
 
 # #Merge each dataset with its corresponding alpha/beta diversity
@@ -133,7 +135,8 @@ for i, df in enumerate(data_list, 1):
 
 
 
-# Precompute SHAP Features for All Datasets (Before Cross-Validation)
+# Precompute SHAP Features for All Datasets (Before Cross-Validation), n=60
+
 all_shap_features_dict = {}
 shap_feature_dfs = []
 
@@ -154,7 +157,7 @@ for dataset_id, feature_set in enumerate(data_list, 1):
     logreg_coefs = logreg.coef_[0]
 
     # Select the top 60 features
-    top_features = X.columns[np.argsort(feature_importance_abs)[-200:]].tolist()
+    top_features = X.columns[np.argsort(feature_importance_abs)[-60:]].tolist()
     
     all_shap_features_dict[dataset_id] = top_features
 
@@ -162,16 +165,59 @@ for dataset_id, feature_set in enumerate(data_list, 1):
     top_60_features_df = pd.DataFrame({
         "Dataset_ID": dataset_id,
         "Feature": top_features,
-        "SHAP_Abs": feature_importance_abs[np.argsort(feature_importance_abs)[-200:]],
-        "SHAP_Signed": feature_importance_signed[np.argsort(feature_importance_abs)[-200:]],
-        "LogReg_Coef": logreg_coefs[np.argsort(feature_importance_abs)[-200:]]
+        "SHAP_Abs": feature_importance_abs[np.argsort(feature_importance_abs)[-60:]],
+        "SHAP_Signed": feature_importance_signed[np.argsort(feature_importance_abs)[-60:]],
+        "LogReg_Coef": logreg_coefs[np.argsort(feature_importance_abs)[-60:]]
     })
 
     shap_feature_dfs.append(top_60_features_df)
 
+# Save Precomputed SHAP Features
+shap_features_df = pd.concat(shap_feature_dfs, ignore_index=True)
+shap_features_df.to_csv(r"Preselected_SHAP_FFnn_GenClinDiv_May27_C100_num_features_60.csv", index=False)
+print("SHAP Features Precomputed and Saved!")
+
+
+# # Precompute SHAP Features for All Datasets (Before Cross-Validation), n=200
+
+# all_shap_features_dict = {}
+# shap_feature_dfs = []
+
+# for dataset_id, feature_set in enumerate(data_list, 1):
+#     print(f"\n🔹 Computing SHAP Features for Dataset {dataset_id}")
+
+#     X = feature_set.drop(columns=['Exacerbation.Outcome', 'subject_id'], errors='ignore')
+#     y = feature_set['Exacerbation.Outcome']
+
+#     logreg = LogisticRegression(class_weight='balanced', penalty='l1', solver='liblinear', C=100, max_iter=10000, random_state=42)
+#     logreg.fit(X, y)
+
+#     explainer = shap.Explainer(logreg, X)
+#     shap_values = explainer(X)
+
+#     feature_importance_abs = np.abs(shap_values.values).mean(axis=0)
+#     feature_importance_signed = shap_values.values.mean(axis=0)
+#     logreg_coefs = logreg.coef_[0]
+
+#     # Select the top 60 features
+#     top_features = X.columns[np.argsort(feature_importance_abs)[-200:]].tolist()
+    
+#     all_shap_features_dict[dataset_id] = top_features
+
+#     # Save SHAP feature importances & LogReg coefficients
+#     top_200_features_df = pd.DataFrame({
+#         "Dataset_ID": dataset_id,
+#         "Feature": top_features,
+#         "SHAP_Abs": feature_importance_abs[np.argsort(feature_importance_abs)[-200:]],
+#         "SHAP_Signed": feature_importance_signed[np.argsort(feature_importance_abs)[-200:]],
+#         "LogReg_Coef": logreg_coefs[np.argsort(feature_importance_abs)[-200:]]
+#     })
+
+#     shap_feature_dfs.append(top_200_features_df)
+
 # # Save Precomputed SHAP Features
 # shap_features_df = pd.concat(shap_feature_dfs, ignore_index=True)
-# shap_features_df.to_csv(r"C:\DATA\bayesian\data\interim\Preselected_SHAP_FFnn_GenClinDiv_May27_C100_num_features_60.csv", index=False)
+# shap_features_df.to_csv(r"Preselected_SHAP_FFnn_GenClinDiv_May27_C100_num_features_200.csv", index=False)
 # print("SHAP Features Precomputed and Saved!")
 
 
