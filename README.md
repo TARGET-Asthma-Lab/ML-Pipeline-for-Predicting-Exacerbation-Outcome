@@ -43,13 +43,13 @@ To reproduce the results:
 ``python src/evaluation.py``
 
 ### Notes
---runs 5 expands {i} in file patterns to 1..5 (your imputed datasets).
+``--runs 5 expands {i} in file patterns to 1..5 (imputed datasets)``.
 
---top-k 60 selects the top 60 SHAP features. To use 200 features, change to --top-k 200.
+``--top-k 60 selects the top 60 SHAP features. To use 200 features, change to --top-k 200``.
 
-Results go to results/ and plots to figures/.
+Results go to ``results/ and plots to figures/``.
 
-Target column is Exacerbation.Outcome. ID column is subject_id.
+``Target column is Exacerbation.Outcome. ID column is subject_id``.
 
 Optional merges:
 
