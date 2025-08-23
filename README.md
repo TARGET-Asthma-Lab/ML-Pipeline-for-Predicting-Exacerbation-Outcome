@@ -32,9 +32,9 @@ To reproduce the results:
 
 ### Create environment
 **Install PyTorch from https://pytorch.org/get-started/locally/ (per your OS/CUDA)**
-`conda create -n ml-pipeline python=3.9 -y`  
-`conda activate ml-pipeline`  
-`pip install -r requirements.txt`
+- `conda create -n ml-pipeline python=3.9 -y`  
+- `conda activate ml-pipeline`  
+- `pip install -r requirements.txt`
 
 ### Run training
 ``python src/training.py``
