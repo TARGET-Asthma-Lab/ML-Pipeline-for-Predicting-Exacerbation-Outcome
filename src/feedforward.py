@@ -1,34 +1,3 @@
-# hypertuning for 60 features or 200 features
-
-'''
-Uncomment the lines corresponding to the data combination you want to run, and leave the others commented.  
-After execution, collect the resulting metrics and figures, and save them to your preferred location.  
-Then, proceed to the next data combination and run the model again.  
-
-Example:  
-Uncomment # Gene Only  
-data_list = [pd.read_csv(rf'gene_RF_imputed_Oct30_{i}_sklearnImp_NoClinical.csv') for i in range(1, 6)]  
-and keep others (Clinical, ClinGen, RawDiv, etc.) commented.  
-
-Run the model for Gene data only.  
-
-If you need a combination of the data with alpha and beta diversity or raw diversity, then:  
-1. Uncomment the data combination you want to run.  
-2. Uncomment the `alpha_div_list` and `beta_div_list` lines if you want to test your data with alpha-beta diversities.  
-3. Uncomment the merging and processing block for Raw Diversity if you want to test your data with Raw Diversity.  
-
-Example: Uncomment # Gene Only  
-data_list = [pd.read_csv(rf'gene_RF_imputed_Oct30_{i}_sklearnImp_NoClinical.csv') for i in range(1, 6)]  
-
-alpha_div_list = [pd.read_csv(rf'alpha_div_imputed_pmm{i}_Jan30.csv') for i in range(1, 6)]  
-beta_div_list = [pd.read_csv(rf'beta_div_imputed_pmm{i}_Jan30.csv') for i in range(1, 6)]  
-
-Run the model for Gene data + alpha-beta diversities.  
-
-To run the model with either n=60 or n=200 Preselected SHAP features, choose the corresponding code block for either n=60 or n=200.
-'''
-
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -61,78 +30,6 @@ if torch.cuda.is_available():
     torch.cuda.manual_seed_all(42)
 torch.backends.cudnn.deterministic = True
 torch.backends.cudnn.benchmark = False
-
-
-# Gene Only
-data_list  = [pd.read_csv(rf'gene_RF_imputed_Oct30_{i}_sklearnImp_NoClinical.csv') for i in range(1, 6)]
-
-# # Clinical
-# data_list  = [pd.read_csv(rf'clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_Asthma_treatment_modified_Apr10.csv') for i in range(1, 6)]
-
-# # # ClinGen
-# data_list  = [pd.read_csv(rf'gene_RF_imputed_Oct30_{i}_sklearnImp_Asthma_treatment_modified_Apr10.csv') for i in range(1, 6)]
-
-# ## Raw Div
-# raw_div = pd.read_csv(r"otutab_transp_div_imputed_fastFeb13.csv")
-
-## Exacerbation.Outcom only
-# data_list  = [pd.read_csv(rf'clinical_Oct30_imputed_rf_{i}_vv_sklearnImp_ExacerOut.csv') for i in range(1, 6)]
-
-
-for i, df in enumerate(data_list, 1):
-    print(f"\nDataset {i} Statistics:")
-    print(f"Total samples: {len(df)}")
-    print(f"Exacerbation ratio: {df['Exacerbation.Outcome'].mean():.3f}")
-    print(f"Number of features: {df.shape[1]-2}")  # -2 for Exacerbation.Outcome and subject_id
-
-# # Load alpha and beta diversity datasets
-# alpha_div_list = [pd.read_csv(rf'alpha_div_imputed_pmm{i}_Jan30.csv') for i in range(1, 6)]
-
-# beta_div_list = [pd.read_csv(rf'beta_div_imputed_pmm{i}_Jan30.csv') for i in range(1, 6)]
-
-
-# #Merge each dataset with its corresponding alpha/beta diversity
-# merged_data_list = []
-# for i in range(5):
-#     merged_df = data_list[i].merge(alpha_div_list[i], on='subject_id', how='inner')
-#     merged_df = merged_df.merge(beta_div_list[i], on='subject_id', how='inner')
-#     merged_data_list.append(merged_df)
-
-
-
-# ## Merging and processing Raw Div 
-
-# # ===========================
-# # Standardize & Apply PCA to Raw Diversity Data
-# # ===========================
-
-# scaler = StandardScaler()
-# diversity_features = [col for col in raw_div.columns if col != 'subject_id']
-# raw_div[diversity_features] = scaler.fit_transform(raw_div[diversity_features])
-
-# pca = PCA(n_components=0.95)  # Retain 95% variance
-# pca_transformed = pca.fit_transform(raw_div[diversity_features])
-# pca_columns = [f'PCA_{i+1}' for i in range(pca_transformed.shape[1])]
-
-# pca_df = pd.DataFrame(pca_transformed, columns=pca_columns)
-# pca_df['subject_id'] = raw_div['subject_id']
-
-# print(f"Raw diversity PCA reduced from {len(diversity_features)} to {pca_transformed.shape[1]} components.")
-
-# # ===========================
-# # Merge Data (With PCA Features)
-# # ===========================
-
-# ## Gene + Clin + Div + RawDiv merge
-
-# merged_data_list = []
-# for i in range(5):
-#     merged_df = data_list[i].merge(alpha_div_list[i], on='subject_id', how='inner')
-#     merged_df = merged_df.merge(beta_div_list[i], on='subject_id', how='inner')
-#     merged_df = merged_df.merge(pca_df, on='subject_id', how='inner')  # Use PCA-transformed diversity data
-#     merged_data_list.append(merged_df)
-
-
 
 
 # Precompute SHAP Features for All Datasets (Before Cross-Validation), n=60
@@ -717,4 +614,5 @@ if __name__ == "__main__":
     model.eval()
 summary(model, input_size=(1, input_dim))
   
+
 
