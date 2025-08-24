@@ -117,8 +117,8 @@ topk_select <- function(df, target, id_col, k) {
   colnames(X)[idx]
 }
 
- ----- TODO: Train/Eval your model -----
+### ----- TODO: Train/Eval your model -----
 For Essential / Composite Regression, take each 'df' in 'datasets',
 do K-fold CV, use 'topk_select(df, opt$target, opt$`id-col`, opt$`top-k`)' to reduce features,
-# compute metrics (AUC via pROC), and save JSON/CSV in 'results/' and plots in 'figures/'.
+compute metrics (AUC via pROC), and save JSON/CSV in 'results/' and plots in 'figures/'.
 message("Loaded ", length(datasets), " dataset(s); ready to train.")
