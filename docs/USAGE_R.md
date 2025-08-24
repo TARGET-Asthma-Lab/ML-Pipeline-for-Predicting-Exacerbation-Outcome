@@ -20,15 +20,15 @@ renv::snapshot()``
 
 
 ### Common flags
---data main dataset (pattern with {i} for 5 imputations)
---alpha / --beta optional diversity datasets (patterns with {i})
---raw-div single file (optional); --raw-div-pca-var 0.95 to PCA it
---runs 5 expands {i} = 1..5
---target Exacerbation.Outcome, --id-col subject_id
---top-k 60 (or 200)
---folds 10
---tag my_run_name (names output files)
-Outputs: metrics JSON/CSV → results/, plots → figures/
+`-data main dataset (pattern with {i} for 5 imputations)`
+`-alpha / --beta optional diversity datasets (patterns with {i})`
+`-raw-div single file (optional); --raw-div-pca-var 0.95 to PCA it`
+`-runs 5 expands {i} = 1..5`
+`-target Exacerbation.Outcome, --id-col subject_id`
+`-top-k 60 (or 200)`
+`-folds 10`
+`-tag my_run_name (names output files)`
+`Outputs: metrics CSV → results/, plots → figures/`
 
 ##!/usr/bin/env Rscript
 suppressPackageStartupMessages({
