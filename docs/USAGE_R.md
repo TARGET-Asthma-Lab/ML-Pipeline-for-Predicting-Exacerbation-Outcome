@@ -19,7 +19,7 @@ install.packages(c(
 renv::snapshot()``
 
 
-## Common flags
+### Common flags
 --data main dataset (pattern with {i} for 5 imputations)
 --alpha / --beta optional diversity datasets (patterns with {i})
 --raw-div single file (optional); --raw-div-pca-var 0.95 to PCA it
@@ -36,7 +36,7 @@ suppressPackageStartupMessages({
   library(glmnet); library(Matrix); library(pROC); library(ggplot2); library(patchwork)
 })
 
-## ----- Flags -----
+### ----- Flags -----
 option_list <- list(
   make_option("--data", type="character", action="append", help="Main CSV(s) or pattern with {i}"),
   make_option("--runs", type="integer", default=5),
@@ -57,7 +57,7 @@ opt <- parse_args(OptionParser(option_list=option_list))
 dir.create(opt$results, showWarnings=FALSE, recursive=TRUE)
 dir.create(opt$figures, showWarnings=FALSE, recursive=TRUE)
 
-## ----- Helpers -----
+### ----- Helpers -----
 expand_paths <- function(pats, runs) {
   if (is.null(pats)) return(NULL)
   if (length(pats)==1 && grepl("\\{i\\}", pats[1])) {
@@ -93,7 +93,7 @@ pca_raw <- function(raw_path, id_col, var_keep=NA_real_) {
   cbind(raw[id_col], score)
 }
 
-# ----- Load data -----
+### ----- Load data -----
 main_paths  <- expand_paths(opt$data,  opt$runs)
 alpha_paths <- expand_paths(opt$alpha, opt$runs)
 beta_paths  <- expand_paths(opt$beta,  opt$runs)
@@ -105,7 +105,7 @@ raw_df     <- if (!is.null(opt$`raw-div`)) pca_raw(opt$`raw-div`, opt$`id-col`, 
 
 datasets <- merge_sets(main_list, alpha_list, beta_list, raw_df, id_col=opt$`id-col`)
 
-# ----- Feature selection (lasso as proxy for SHAP screening) -----
+### ----- Feature selection (lasso as proxy for SHAP screening) -----
 topk_select <- function(df, target, id_col, k) {
   X <- df %>% select(-all_of(c(target, id_col))) %>% as.matrix()
   y <- df[[target]]
@@ -117,8 +117,8 @@ topk_select <- function(df, target, id_col, k) {
   colnames(X)[idx]
 }
 
-# ----- TODO: Train/Eval your model -----
-# For Essential / Composite Regression, take each 'df' in 'datasets',
-# do K-fold CV, use 'topk_select(df, opt$target, opt$`id-col`, opt$`top-k`)' to reduce features,
+ ----- TODO: Train/Eval your model -----
+For Essential / Composite Regression, take each 'df' in 'datasets',
+do K-fold CV, use 'topk_select(df, opt$target, opt$`id-col`, opt$`top-k`)' to reduce features,
 # compute metrics (AUC via pROC), and save JSON/CSV in 'results/' and plots in 'figures/'.
 message("Loaded ", length(datasets), " dataset(s); ready to train.")
