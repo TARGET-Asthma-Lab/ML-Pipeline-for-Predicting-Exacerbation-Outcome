@@ -37,7 +37,7 @@ suppressPackageStartupMessages({
 })
 
 ### ----- Flags -----
-option_list <- list(
+`option_list <- list(
   make_option("--data", type="character", action="append", help="Main CSV(s) or pattern with {i}"),
   make_option("--runs", type="integer", default=5),
   make_option("--alpha", type="character", action="append", default=NULL),
@@ -52,7 +52,7 @@ option_list <- list(
   make_option("--results", type="character", default="results"),
   make_option("--figures", type="character", default="figures")
 )
-opt <- parse_args(OptionParser(option_list=option_list))
+opt <- parse_args(OptionParser(option_list=option_list))`
 
 dir.create(opt$results, showWarnings=FALSE, recursive=TRUE)
 dir.create(opt$figures, showWarnings=FALSE, recursive=TRUE)
