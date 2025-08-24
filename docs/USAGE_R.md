@@ -20,15 +20,15 @@ renv::snapshot()``
 
 
 ### Common flags
---data main dataset (pattern with {i} for 5 imputations)
---alpha / --beta optional diversity datasets (patterns with {i})
---raw-div single file (optional); --raw-div-pca-var 0.95 to PCA it
---runs 5 expands {i} = 1..5
---target Exacerbation.Outcome, --id-col subject_id
---top-k 60 (or 200)
---folds 10
---tag my_run_name (names output files)
-Outputs: metrics JSON/CSV → results/, plots → figures/
+`-data main dataset (pattern with {i} for 5 imputations)`
+`-alpha / --beta optional diversity datasets (patterns with {i})`
+`-raw-div single file (optional); --raw-div-pca-var 0.95 to PCA it`
+`-runs 5 expands {i} = 1..5`
+`-target Exacerbation.Outcome, --id-col subject_id`
+`-top-k 60 (or 200)`
+`-folds 10`
+`-tag my_run_name (names output files)`
+`Outputs: metrics CSV → results/, plots → figures/`
 
 ##!/usr/bin/env Rscript
 suppressPackageStartupMessages({
@@ -37,7 +37,7 @@ suppressPackageStartupMessages({
 })
 
 ### ----- Flags -----
-option_list <- list(
+`option_list <- list(
   make_option("--data", type="character", action="append", help="Main CSV(s) or pattern with {i}"),
   make_option("--runs", type="integer", default=5),
   make_option("--alpha", type="character", action="append", default=NULL),
@@ -52,7 +52,7 @@ option_list <- list(
   make_option("--results", type="character", default="results"),
   make_option("--figures", type="character", default="figures")
 )
-opt <- parse_args(OptionParser(option_list=option_list))
+opt <- parse_args(OptionParser(option_list=option_list))`
 
 dir.create(opt$results, showWarnings=FALSE, recursive=TRUE)
 dir.create(opt$figures, showWarnings=FALSE, recursive=TRUE)
