@@ -7,16 +7,14 @@ R scripts. Use the CLI flags below.
 ---
 
 ## Environment
-
-### Option A — R + renv
-``r
 install.packages("renv")
 renv::init()
 install.packages(c(
   "optparse","data.table","readr","dplyr","stringr","ggplot2",
   "pROC","ROCR","caret","glmnet","Matrix","patchwork"
 ))
-renv::snapshot()``
+renv::snapshot()
+
 
 
 ### Common flags
