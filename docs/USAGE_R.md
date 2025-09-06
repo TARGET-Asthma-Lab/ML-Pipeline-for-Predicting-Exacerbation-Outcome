@@ -12,7 +12,7 @@ Keep scripts generic—no hard-coded paths; use relative paths in the repo.
 
 ---
 
-## 1) Environment
+## Environment
 
 ### Option A — Use `renv` (recommended)
 ```r
@@ -49,7 +49,7 @@ devtools::install_github("tyler-lovelace1/rCausalMGM")
 
 ---
 
-## 2) File placement
+## File placement
 
 Place your R scripts under `R/` and (optionally) any upstream ER sources in `R/ER/`:
 
@@ -76,14 +76,14 @@ source("ER-inference.R")
 
 ---
 
-## 3) Inputs
+## Inputs
 
 - CSVs (5 imputations) using a **pattern with `{i}`** so it expands to files `..._1.csv` … `..._5.csv`.  
   Example: `data/clinical/clinical_Oct30_imputed_rf_{i}.csv`
 
 ---
 
-## 4) Quickstart — Composite Regression (CR)
+## Quickstart — Composite Regression (CR)
 
 Run from an R session (RStudio or terminal `R`):
 
@@ -119,7 +119,7 @@ results <- analyze_datasets(base_file_path, params, n_datasets = 5)
 
 ---
 
-## 5) Quickstart — Essential Regression (ER)
+## Quickstart — Essential Regression (ER)
 
 Run from an R session:
 
@@ -153,7 +153,7 @@ ensure_output_dir()
 
 ---
 
-## 6) Parameters you can tune (CR)
+## Parameters you can tune (CR)
 
 The CR driver uses a `params` list:
 
@@ -169,7 +169,7 @@ These are passed into the dataset processing and downstream training/evaluation.
 
 ---
 
-## 7) Tips
+## Tips
 
 - Use **relative paths** inside the repo (avoid absolute `C:\...` paths).
 - The pipelines create `output/` and `figures/` automatically; you can commit key CSVs/PNGs for reproducibility.
@@ -177,7 +177,7 @@ These are passed into the dataset processing and downstream training/evaluation.
 
 ---
 
-## 8) Minimal “one-liner” (non-interactive) run
+## Minimal “one-liner” (non-interactive) run
 
 From a shell/terminal:
 
