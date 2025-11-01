@@ -1,5 +1,7 @@
 # Essential Regression (ER) – Latent Factor Analysis Pipeline
 
+![FigureX](figures/FigureX4_v2.jpg)
+
 This folder contains the R implementation I used to run **Essential Regression (ER)** and downstream analyses on our pediatric asthma / multi-omics dataset, adapted from:
 
 > Bing X., et al. **Essential Regression: A generalizable framework for inferring causal latent factors from multi-omic datasets**. *Patterns (NY)* 2022. PMID: 35607614.  
@@ -19,6 +21,7 @@ This README explains what each script does and how to run them.
 
 ```text
 Latent-Factor-Analysis/
+├── figures
 ├── ER_Apr13-v2.R
 ├── ER_CompositeRegression_Apr29.R
 ├── ER_graph_node.R
