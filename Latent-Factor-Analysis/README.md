@@ -1,6 +1,6 @@
 # Essential Regression (ER) – Latent Factor Analysis Pipeline
 
-![FigureX](figures/FigureX4_v2.jpg)
+![FigureX4_v2](figures/FigureX4_v2.jpg)
 
 This folder contains the R implementation I used to run **Essential Regression (ER)** and downstream analyses on our pediatric asthma / multi-omics dataset, adapted from:
 
