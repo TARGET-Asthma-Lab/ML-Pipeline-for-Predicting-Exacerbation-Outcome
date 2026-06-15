@@ -2,7 +2,7 @@
 
 This repository contains code and documentation for the machine learning (ML) pipeline developed to analyze and predict clinical outcomes in pediatric asthma patients. 
 The models were implemented and validated as part of the study:  
-**"[full study title]"**.
+**"Exacerbation Risk Prediction in Pediatric Wheeze and Asthma Using Machine Learning-Based Integrative Multi-Omics Analysis"**.
 
 <p align="center">
   <img src="figures/Pipeline-v3.png" width="100%"/>
