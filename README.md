@@ -75,14 +75,23 @@ This project was created and developed by:
 *Lead developer of the ML models, data pipeline, and workflow design.*
 
 **Data contributions from:**  
-Co-author 1  
-Co-author 2  
-Co-author 3  
-Co-author 4  
-Co-author 5  
-Co-author 6  
-Co-author 7  
-Co-author 8
+Co-author 1: Ian M Adcock
+Co-author 2: Lars I Andersson
+Co-author 3: Charles Auffray
+Co-author 4: K Fan Chung
+Co-author 5: Sven-Erik Dahlen
+Co-author 6: Bertrand De Meulder
+Co-author 7: Ratko Djukanovic
+Co-author 8: Peter Howarth
+Co-author 9: Norbert Krug
+Co-author 10: Amanda Roberts
+Co-author 11: Ana R Sousa
+Co-author 12: Peter J Sterk
+Co-author 13: David Supple
+Co-author 14: Graham Roberts
+Co-author 15: Mohib Uddin
+Co-author 16: Scott Wagers
+Co-author 17: Anke-Hilse Maitland-van der Zee
 
 ## 📄 Citation
 If you use this codebase, please cite:
